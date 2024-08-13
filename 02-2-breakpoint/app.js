@@ -1,4 +1,5 @@
 function calculateAverage(numbers) {
+  debugger;
   let sum = 0;
   for (let i = 0; i <= numbers.length; i += 1) {
     sum += numbers[i];
@@ -7,6 +8,7 @@ function calculateAverage(numbers) {
 }
 
 function removeEvenNumbers(numbers) {
+  debugger;
   const filteredNumbers = [];
   for (let i = 0; i < numbers.length; i += 1) {
     if (numbers[i] / 2 !== 2) {
@@ -25,3 +27,4 @@ console.log(`Average: ${average}`);
 
 const evenNumbers = removeEvenNumbers(data);
 console.log(`Odd numbers: ${evenNumbers}`);
+

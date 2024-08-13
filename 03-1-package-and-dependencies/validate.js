@@ -10,27 +10,39 @@ const fs = require('fs');
     const { dependencies, devDependencies, scripts } = packageJson;
 
     if (!dependencies) {
-      throw new Error('Anda harus menambahkan `dependencies` pada berkas `package.json`');
+      throw new Error(
+        'Anda harus menambahkan `dependencies` pada berkas `package.json`'
+      );
     }
 
     if (!devDependencies) {
-      throw new Error('Anda harus menambahkan `devDependencies` pada berkas `package.json`');
+      throw new Error(
+        'Anda harus menambahkan `devDependencies` pada berkas `package.json`'
+      );
     }
 
     if (!dependencies.lodash) {
-      throw new Error('Anda harus menambahkan `lodash` pada `dependenceis` di berkas `package.json`');
+      throw new Error(
+        'Anda harus menambahkan `lodash` pada `dependenceis` di berkas `package.json`'
+      );
     }
 
     if (!devDependencies.nodemon) {
-      throw new Error('Anda harus menambahkan `nodemon` pada `devDependencies` di berkas `package.json`');
+      throw new Error(
+        'Anda harus menambahkan `nodemon` pada `devDependencies` di berkas `package.json`'
+      );
     }
 
     if (!scripts.start) {
-      throw new Error('Anda harus menambahkan `start` pada `scripts` di berkas `package.json`');
+      throw new Error(
+        'Anda harus menambahkan `start` pada `scripts` di berkas `package.json`'
+      );
     }
 
     if (!scripts.dev) {
-      throw new Error('Anda harus menambahkan `dev` pada `scripts` di berkas `package.json`');
+      throw new Error(
+        'Anda harus menambahkan `dev` pada `scripts` di berkas `package.json`'
+      );
     }
 
     // check lodash version should major version 3, minor any, patch any
@@ -38,8 +50,10 @@ const fs = require('fs');
     const lodashVersionRegex = /^([\^~])?(\d+)(\.(\d+))?(\.(\d+))?$/;
     const lodashVersionMatch = lodashVersion.match(lodashVersionRegex);
 
-    if(!lodashVersionMatch) {
-      throw new Error('Versi dari `lodash` tidak sesuai dengan kriteria yang dibutuhkan.');
+    if (!lodashVersionMatch) {
+      throw new Error(
+        'Versi dari `lodash` tidak sesuai dengan kriteria yang dibutuhkan.'
+      );
     }
 
     const lodashMajorVersion = lodashVersionMatch[2];
