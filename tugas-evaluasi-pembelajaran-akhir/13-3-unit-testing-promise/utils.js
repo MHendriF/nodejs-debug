@@ -8,8 +8,7 @@ function generateRandomStringProm(length) {
       reject(Error('Length must be greater than 0'));
     }
 
-    const charset =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
 
     for (let i = 0; i < length; i += 1) {
@@ -22,4 +21,3 @@ function generateRandomStringProm(length) {
 }
 
 module.exports = { generateRandomStringProm };
-
