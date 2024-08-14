@@ -14,10 +14,38 @@
  */
 
 const fs = require('fs');
+const path = require('path');
 
 function readDirAndWriteFile() {
-  // Tulis jawaban di bawah ini
-  
+  const currentDir = __dirname;
+
+  fs.readdir(currentDir, { withFileTypes: true }, (err, files) => {
+    if (err) {
+      console.error('Error reading directory:', err);
+      return;
+    }
+
+    // Filter hanya folder
+    const folders = files
+      .filter((file) => file.isDirectory())
+      .map((file) => file.name);
+
+    // Urutkan folder secara ascending (A-Z)
+    folders.sort();
+
+    // Gabungkan nama folder dengan koma
+    const folderNames = folders.join(',');
+
+    // Tulis ke file out.txt
+    fs.writeFile('out.txt', folderNames, (err) => {
+      if (err) {
+        console.error('Error writing to file:', err);
+        return;
+      }
+      console.log('Folders written to out.txt successfully.');
+    });
+  });
 }
 
 readDirAndWriteFile();
+

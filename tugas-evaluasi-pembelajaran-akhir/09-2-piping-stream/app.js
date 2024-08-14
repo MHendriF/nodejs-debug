@@ -15,3 +15,16 @@ const { createReadable, createWritable } = require('./utils');
 
 const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 
+// 1. Buat readable stream menggunakan fungsi createReadable
+const readable = createReadable(alphabet);
+
+// 2. Buat writable stream menggunakan fungsi createWritable
+const writable = createWritable();
+
+// 3. Pipe readable ke writable
+readable.pipe(writable);
+
+// Untuk memverifikasi hasilnya, Anda bisa menunggu proses selesai dan kemudian melihat isi `sink`
+readable.on('end', () => {
+  console.log(writable.sink); // Output: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+});

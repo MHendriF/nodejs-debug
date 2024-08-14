@@ -12,5 +12,14 @@
 const { spawn } = require('child_process');
 
 function main(command, args) {
-  return spawn();
+  const child = spawn(command, args, {
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+
+  // Mengaitkan STDOUT child process ke STDOUT parent process
+  child.stdout.pipe(process.stdout);
+
+  return child;
 }
+
+module.exports = main;
